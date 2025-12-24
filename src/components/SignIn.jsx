@@ -2,9 +2,16 @@ import { useNavigate } from "react-router-dom";
 import Input from "../ui/input";
 import Button from "../ui/button";
 import Container from "../ui/container";
+import { useEffect, useState } from "react";
 
 function SignIn() {
   const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: "",
+    password: ""
+  })
+
+  const isDisabled = !user.email || !user.password;
 
   return (
     <Container>
@@ -29,6 +36,13 @@ function SignIn() {
             label="Email address"
             required
             placeholder="Enter email address"
+            value={user.email}
+            onChange={(e) =>
+              setUser((prev) => ({
+                ...prev,
+                email: e.target.value,
+              }))
+            }
           />
 
           <Input
@@ -36,6 +50,13 @@ function SignIn() {
             required
             type="password"
             placeholder="Enter password"
+            value={user.password}
+            onChange={(e) =>
+              setUser((prev) => ({
+                ...prev,
+                password: e.target.value,
+              }))
+            }
           />
         </div>
 
@@ -43,8 +64,11 @@ function SignIn() {
         <div className="mt-6">
           <Button
             text="Login"
-            className="bg-[#CBCBCB] text-white cursor-not-allowed"
-            onClick={() => navigate("/dashboard")}
+            className={`${isDisabled
+                ? "bg-[#CBCBCB] text-white cursor-not-allowed"
+                : "bg-[#d9caf8] text-black"
+              }`}
+            disabled={isDisabled}
           />
         </div>
       </div>

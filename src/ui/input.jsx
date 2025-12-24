@@ -2,11 +2,13 @@ export default function Input({
     label,
     required,
     type = "text",
-    placeholder
+    placeholder,
+    ...props
 }) {
     return (
         <div className="relative mb-5">
             <input
+                {...props}
                 type={type}
                 placeholder={placeholder}
                 className="peer w-full px-3 py-3 border rounded-md text-sm outline-none

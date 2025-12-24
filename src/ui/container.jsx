@@ -6,13 +6,13 @@ export default function Container({ children }) {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-5 bg-gray-100">
-      <div className="mobile-container w-full max-w-[375px]">
-        <div className="w-full max-w-sm bg-white border rounded-lg p-3 flex flex-col h-[120vh] justify-between">
+      <div className="mobile-container w-full max-w-[375px] border-gray-300">
+        <div className="w-full max-w-sm rounded-lg p-3 flex flex-col h-[120vh] justify-between bg-[#F7F8F9] shadow-lg">
 
           {children && children}
 
           {/* Bottom navigation */}
-          <div className="flex justify-around bg-white">
+          <div className="flex justify-around">
             {/* Left / Back */}
             <button
               className="text-gray-600 hover:text-blue-500"

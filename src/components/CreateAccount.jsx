@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../ui/input";
 import Button from "../ui/button";
@@ -29,11 +29,14 @@ function CreateAccount() {
     navigate('/account-settings');
   };
 
+  const isDisabled = !formData.email || !formData.password || !formData.fullName || !formData.phoneNumber || !formData.companyName || !formData.isAgency
+
+
   return (
     <Container>
       <div>
         <div className="mobile-container w-full max-w-[375px] relative">
-         
+
         </div>
         <div className="relative">
           <h1 className="text-3xl font-bold text-popx-gray-700 leading-tight">
@@ -128,7 +131,8 @@ function CreateAccount() {
 
           <Button
             text="Create Account"
-            className="bg-[#4709c4] text-white hover:bg-[#3b079f] relative top-[5rem]"
+            className={` ${isDisabled && "bg-[#CBCBCB] text-white cursor-not-allowed hover:bg-[#CBCBCB]"} bg-[#4709c4] text-white hover:bg-[#3b079f] relative top-[5rem]`}
+            disabled={isDisabled}
           />
         </form>
       </div>
