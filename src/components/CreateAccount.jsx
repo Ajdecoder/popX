@@ -29,7 +29,7 @@ function CreateAccount() {
     navigate('/account-settings');
   };
 
-  const isDisabled = !formData.email || !formData.password || !formData.fullName || !formData.phoneNumber || !formData.companyName || !formData.isAgency
+  const isDisabled = !formData.email || !formData.password || !formData.fullName || !formData.phoneNumber || !formData.isAgency
 
 
   return (
